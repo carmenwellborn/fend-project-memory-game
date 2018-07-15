@@ -35,8 +35,7 @@ card.addEventListener('click', function(){
 });
 
 function displayCard (){
-  card.classList.toggle('open');
-  card.classList.toggle('show');
+  card.classList.toggle('open', 'show');
 }
 
 
