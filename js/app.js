@@ -2,7 +2,7 @@
  * Create a list that holds all of your cards
  */
 var classesOfCards = ['fa-diamond','fa-paper-plane-o','fa-anchor','fa-bolt','fa-cube','fa-leaf','fa-bicycle','fa-bomb',
-                      'fa-diamond','fa-paper-plane-o','fa-anchor','fa-bolt','fa-cube','fa-leaf','fa-bicycle','fa-bomb'];
+                      'fa-diamond','fa-paper-plane-o','fa-anchor','fa-bolt','fa-cube','fa-leaf','fa-bicycle','fa-bomb','0'];
 
 function cardsInDeck () {
   shuffle(classesOfCards);
@@ -44,19 +44,17 @@ function shuffle(array) {
     return array;
 }
 
-//const card = document.querySelector('.card');
+function displayCard (evt){
+  if (evt.target.nodeName === 'LI') {
+    const card = evt.target;
+    card.classList.add('open', 'show');
+  }
+}
 
-//card.addEventListener('click', function(){
-
-  //displayCard();
-
-//});
-
-//function displayCard (){
-//  card.classList.toggle('open', 'show');
-//}
-
-
+const deck = document.querySelector('.deck');
+deck.addEventListener('click', function (evt) {
+    displayCard(evt);
+});
 /*
  * 1- set up the event listener for a card. If a card is clicked:
  * 1.1 - display the card's symbol (put this functionality in another function that you call from this one)
