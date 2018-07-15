@@ -4,6 +4,24 @@
 var classesOfCards = ['fa-diamond','fa-paper-plane-o','fa-anchor','fa-bolt','fa-cube','fa-leaf','fa-bicycle','fa-bomb',
                       'fa-diamond','fa-paper-plane-o','fa-anchor','fa-bolt','fa-cube','fa-leaf','fa-bicycle','fa-bomb'];
 
+function cardsInDeck () {
+  shuffle(classesOfCards);
+  const deck = document.querySelector('ul.deck');
+
+  for (let i=1; i<=16; i++){
+    const icon = classesOfCards[i];
+    const listOfCard = document.createElement('li');
+    listOfCard.classList.add('card');
+    deck.appendChild(listOfCard);
+
+  const iElement = document.createElement('i');
+  iElement.classList.add('fa',icon);
+  listOfCard.appendChild(iElement);
+  }
+
+}
+
+cardsInDeck();
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -26,17 +44,17 @@ function shuffle(array) {
     return array;
 }
 
-const card = document.querySelector('.card');
+//const card = document.querySelector('.card');
 
-card.addEventListener('click', function(){
+//card.addEventListener('click', function(){
 
-  displayCard();
+  //displayCard();
 
-});
+//});
 
-function displayCard (){
-  card.classList.toggle('open', 'show');
-}
+//function displayCard (){
+//  card.classList.toggle('open', 'show');
+//}
 
 
 /*
