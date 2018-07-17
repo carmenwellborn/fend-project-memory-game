@@ -2,15 +2,16 @@
  * Create a list that holds all of your cards
 */
 var classesOfCards = ['fa-diamond','fa-paper-plane-o','fa-anchor','fa-bolt','fa-cube','fa-leaf','fa-bicycle','fa-bomb',
-                      'fa-diamond','fa-paper-plane-o','fa-anchor','fa-bolt','fa-cube','fa-leaf','fa-bicycle','fa-bomb','0'];
+                      'fa-diamond','fa-paper-plane-o','fa-anchor','fa-bolt','fa-cube','fa-leaf','fa-bicycle','fa-bomb'];
 
 //* Display the cards on the page
 function cardsInDeck () {
   //- shuffle the list of cards using the provided "shuffle" method below
   shuffle(classesOfCards);
+  console.log(classesOfCards);
   const deck = document.querySelector('ul.deck');
 
-  for (let i=1; i<=16; i++){
+  for (let i=0; i<=15; i++){
     //- loop through each card and create its HTML
     const icon = classesOfCards[i];
     const listOfCard = document.createElement('li');
@@ -19,6 +20,7 @@ function cardsInDeck () {
 
   const iElement = document.createElement('i');
   iElement.classList.add('fa',icon);
+
   //- add each card's HTML to the page
   listOfCard.appendChild(iElement);
   }
@@ -54,22 +56,26 @@ function listOfOpenCards(card){
   listOfCards.push(card);
   //*- if the list already has another card, check to see if the two cards match
   if (listOfCards.length==2){
-    //Do match
+
     const card1 = listOfCards[0].innerHTML;
     const card2 = listOfCards[1].innerHTML;
 
-    //if the cards do match, lock the cards in the open position
-    if (card1===card2) {
-      //console.log("Cards do match")
-      listOfCards[0].classList.add('match');
-      listOfCards[1].classList.add('match');
-    }
-    //if the cards do not match, remove the cards from the list and hide the card's symbol
-    else if (card1!=card2) {
-        //console.log("Cards don't match")
-        listOfCards[0].classList.remove('open','show');
-        listOfCards[1].classList.remove('open','show');
-    }
+    setTimeout(function(){
+      //if the cards do match, lock the cards in the open position
+      if (card1===card2) {
+        //console.log("Cards do match")
+        listOfCards[0].classList.add('match');
+        listOfCards[1].classList.add('match');
+      }
+      //if the cards do not match, remove the cards from the list and hide the card's symbol
+      else if (card1!=card2) {
+          //console.log("Cards don't match")
+          listOfCards[0].classList.remove('open','show');
+          listOfCards[1].classList.remove('open','show');
+      }
+
+    }, 1000);
+
   }
 }
 
