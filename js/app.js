@@ -48,6 +48,11 @@ function displayCard (card){
    card.classList.add('open', 'show');
 }
 
+//* - add the card to a *list* of "open" cards
+var listOfCards=[];
+function ListOfOpenCards(card){
+  listOfCards.push(card);
+}
 
 
 //* set up the event listener for a card.
@@ -56,6 +61,7 @@ deck.addEventListener('click', function (evt) {
   const card = evt.target;
   if (card.nodeName === 'LI') {
     displayCard(card);
+    ListOfOpenCards(card);
     }
 });
 
