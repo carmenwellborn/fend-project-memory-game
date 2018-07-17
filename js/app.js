@@ -52,6 +52,22 @@ function displayCard (card){
 var listOfCards=[];
 function ListOfOpenCards(card){
   listOfCards.push(card);
+  if (listOfCards.length==2){
+    //Do match
+    const card1 = listOfCards[0].innerHTML;
+    const card2 = listOfCards[1].innerHTML;
+    if (card1===card2) {
+      console.log("Cards do match")
+      listOfCards[0].classList.add('match');
+      listOfCards[1].classList.add('match');
+    }
+    //Do not match
+    else if (card1!=card2) {
+        console.log("Cards don't match")
+        listOfCards[0].classList.remove('open','show');
+        listOfCards[1].classList.remove('open','show');
+    }
+  }
 }
 
 
