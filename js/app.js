@@ -64,6 +64,10 @@ function listOfOpenCards(card){
       if (card1===card2) {
         listOfCards[0].classList.add('match');
         listOfCards[1].classList.add('match');
+
+        listOfCards[0].classList.remove('open','show');
+        listOfCards[1].classList.remove('open','show');
+        
         listOfCards=[];
       }
       //if the cards do not match, remove the cards from the list and hide the card's symbol
