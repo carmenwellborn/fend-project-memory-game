@@ -44,22 +44,23 @@ function shuffle(array) {
 
 
 // - If a card is clicked: display the card's symbol
-function displayCard (evt){
-  if (evt.target.nodeName === 'LI') {
-    const card = evt.target;
-    card.classList.add('open', 'show');
-  }
+function displayCard (card){
+   card.classList.add('open', 'show');
 }
+
+
 
 //* set up the event listener for a card.
 const deck = document.querySelector('.deck');
 deck.addEventListener('click', function (evt) {
-    displayCard(evt);
+  const card = evt.target;
+  if (card.nodeName === 'LI') {
+    displayCard(card);
+    }
 });
-/*
 
-//* - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- * - if the list already has another card, check to see if the two cards match
+
+/* *- if the list already has another card, check to see if the two cards match
  *   + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
  *   + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
  *   + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
