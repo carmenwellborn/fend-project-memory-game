@@ -52,18 +52,21 @@ function displayCard (card){
 var listOfCards=[];
 function ListOfOpenCards(card){
   listOfCards.push(card);
+  //*- if the list already has another card, check to see if the two cards match
   if (listOfCards.length==2){
     //Do match
     const card1 = listOfCards[0].innerHTML;
     const card2 = listOfCards[1].innerHTML;
+
+    //if the cards do match, lock the cards in the open position
     if (card1===card2) {
-      console.log("Cards do match")
+      //console.log("Cards do match")
       listOfCards[0].classList.add('match');
       listOfCards[1].classList.add('match');
     }
-    //Do not match
+    //if the cards do not match, remove the cards from the list and hide the card's symbol
     else if (card1!=card2) {
-        console.log("Cards don't match")
+        //console.log("Cards don't match")
         listOfCards[0].classList.remove('open','show');
         listOfCards[1].classList.remove('open','show');
     }
@@ -82,9 +85,7 @@ deck.addEventListener('click', function (evt) {
 });
 
 
-/* *- if the list already has another card, check to see if the two cards match
- *   + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *   + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
+/*
  *   + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *   + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
