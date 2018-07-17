@@ -50,7 +50,7 @@ function displayCard (card){
 
 //* - add the card to a *list* of "open" cards
 var listOfCards=[];
-function ListOfOpenCards(card){
+function listOfOpenCards(card){
   listOfCards.push(card);
   //*- if the list already has another card, check to see if the two cards match
   if (listOfCards.length==2){
@@ -80,7 +80,7 @@ deck.addEventListener('click', function (evt) {
   const card = evt.target;
   if (card.nodeName === 'LI') {
     displayCard(card);
-    ListOfOpenCards(card);
+    listOfOpenCards(card);
     }
 });
 
