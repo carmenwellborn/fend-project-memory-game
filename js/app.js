@@ -8,7 +8,6 @@ var classesOfCards = ['fa-diamond','fa-paper-plane-o','fa-anchor','fa-bolt','fa-
 function cardsInDeck () {
   //- shuffle the list of cards using the provided "shuffle" method below
   shuffle(classesOfCards);
-  console.log(classesOfCards);
   const deck = document.querySelector('ul.deck');
 
   for (let i=0; i<=15; i++){
@@ -59,19 +58,19 @@ function listOfOpenCards(card){
 
     const card1 = listOfCards[0].innerHTML;
     const card2 = listOfCards[1].innerHTML;
-
     setTimeout(function(){
+
       //if the cards do match, lock the cards in the open position
       if (card1===card2) {
-        //console.log("Cards do match")
         listOfCards[0].classList.add('match');
         listOfCards[1].classList.add('match');
+        listOfCards=[];
       }
       //if the cards do not match, remove the cards from the list and hide the card's symbol
       else if (card1!=card2) {
-          //console.log("Cards don't match")
           listOfCards[0].classList.remove('open','show');
           listOfCards[1].classList.remove('open','show');
+          listOfCards=[];
       }
 
     }, 1000);
