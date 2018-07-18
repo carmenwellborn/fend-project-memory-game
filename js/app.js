@@ -67,7 +67,7 @@ function listOfOpenCards(card){
 
         listOfCards[0].classList.remove('open','show');
         listOfCards[1].classList.remove('open','show');
-        
+
         listOfCards=[];
       }
       //if the cards do not match, remove the cards from the list and hide the card's symbol
@@ -93,6 +93,16 @@ deck.addEventListener('click', function (evt) {
     }
 });
 
+var time=0;
+function startTimer () {
+  setTimer = setInterval(function(){
+    time++;
+    const timeInSeconds = document.querySelector('.timer');
+    timeInSeconds.textContent = time;
+    }, 1000);
+}
+
+//startTimer();
 
 /*
  *   + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
