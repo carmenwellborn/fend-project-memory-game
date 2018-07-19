@@ -62,8 +62,7 @@ var listOfCards=[];
 function listOfOpenCards(card){
   listOfCards.push(card);
   //*- if the list already has another card, check to see if the two cards match
-  if (listOfCards.length==2){
-
+  if (listOfCards.length===2){
     const card1 = listOfCards[0].innerHTML;
     const card2 = listOfCards[1].innerHTML;
     setTimeout(function(){
@@ -78,6 +77,7 @@ function listOfOpenCards(card){
 
         listOfCards=[];
       }
+
       //if the cards do not match, remove the cards from the list and hide the card's symbol
       else if (card1!=card2) {
           listOfCards[0].classList.remove('open','show');
@@ -87,7 +87,8 @@ function listOfOpenCards(card){
 
     }, 1000);
 
-  }
+  } // if (listOfCards.length==2)
+
 }
 
 //Count the number of moves, every two cards
