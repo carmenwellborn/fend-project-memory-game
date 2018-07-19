@@ -59,6 +59,20 @@ function startTimer () {
 
 //* - add the card to a *list* of "open" cards
 var listOfCards=[];
+
+function doMatch () {
+  listOfCards[0].classList.add('match');
+  listOfCards[1].classList.add('match');
+
+  listOfCards[0].classList.remove('open','show');
+  listOfCards[1].classList.remove('open','show');
+}
+
+function doNoMatch() {
+  listOfCards[0].classList.remove('open','show');
+  listOfCards[1].classList.remove('open','show');
+}
+
 function listOfOpenCards(card){
   listOfCards.push(card);
   //*- if the list already has another card, check to see if the two cards match
@@ -69,22 +83,14 @@ function listOfOpenCards(card){
 
       //if the cards do match, lock the cards in the open position
       if (card1===card2) {
-        listOfCards[0].classList.add('match');
-        listOfCards[1].classList.add('match');
-
-        listOfCards[0].classList.remove('open','show');
-        listOfCards[1].classList.remove('open','show');
-
-        listOfCards=[];
+        doMatch();
       }
 
       //if the cards do not match, remove the cards from the list and hide the card's symbol
       else if (card1!=card2) {
-          listOfCards[0].classList.remove('open','show');
-          listOfCards[1].classList.remove('open','show');
-          listOfCards=[];
-      }
-
+          doNoMatch();
+        }
+      listOfCards=[];
     }, 1000);
 
   } // if (listOfCards.length==2)
