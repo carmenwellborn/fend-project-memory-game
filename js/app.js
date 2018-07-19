@@ -4,6 +4,21 @@
 var classesOfCards = ['fa-diamond','fa-paper-plane-o','fa-anchor','fa-bolt','fa-cube','fa-leaf','fa-bicycle','fa-bomb',
                       'fa-diamond','fa-paper-plane-o','fa-anchor','fa-bolt','fa-cube','fa-leaf','fa-bicycle','fa-bomb'];
 
+// Shuffle function from http://stackoverflow.com/a/2450976
+function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+}
+
 //* Display the cards on the page
 function cardsInDeck () {
   //- shuffle the list of cards using the provided "shuffle" method below
@@ -28,25 +43,18 @@ function cardsInDeck () {
 
 cardsInDeck();
 
-// Shuffle function from http://stackoverflow.com/a/2450976
-function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
-
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
-
-    return array;
-}
-
-
 // - If a card is clicked: display the card's symbol
 function displayCard (card){
    card.classList.add('open', 'show');
+}
+
+var time=0;
+function startTimer () {
+  setTimer = setInterval(function(){
+    time++;
+    const timeInSeconds = document.querySelector('.timer');
+    timeInSeconds.textContent = time;
+  }, 1000);
 }
 
 //* - add the card to a *list* of "open" cards
@@ -93,16 +101,10 @@ deck.addEventListener('click', function (evt) {
     }
 });
 
-var time=0;
-function startTimer () {
-  setTimer = setInterval(function(){
-    time++;
-    const timeInSeconds = document.querySelector('.timer');
-    timeInSeconds.textContent = time;
-    }, 1000);
-}
+
 
 //startTimer();
+
 
 /*
  *   + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
