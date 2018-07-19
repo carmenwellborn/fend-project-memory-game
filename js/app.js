@@ -90,6 +90,15 @@ function listOfOpenCards(card){
   }
 }
 
+//Count the number of moves, every two cards
+function countMoves(count){
+  const totalCount = count/2;
+  const moves = document.querySelector('.moves');
+  if((count % 2) == 0) {
+    moves.textContent = totalCount;
+  }
+}
+
 // Count the number of clicks
 let count = 0;
 //* set up the event listener for a card.
@@ -104,7 +113,11 @@ deck.addEventListener('click', function (evt) {
     }
     displayCard(card);
     listOfOpenCards(card);
-    }
+    countMoves(count);
+    //if((count % 2) == 0){
+      //console.log(count);
+    //}
+  }
 });
 
 //Restart the page
@@ -113,9 +126,7 @@ function reloadPage() {
 }
 
 const reload = document.querySelector('.restart');
-
 reload.addEventListener('click', function () {
-  console.log("Reload the page");
   reloadPage();
 });
 /*
