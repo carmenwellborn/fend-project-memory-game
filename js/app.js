@@ -90,21 +90,22 @@ function listOfOpenCards(card){
   }
 }
 
-
+// Count the number of clicks
+let count = 0;
 //* set up the event listener for a card.
 const deck = document.querySelector('.deck');
 deck.addEventListener('click', function (evt) {
   const card = evt.target;
   if (card.nodeName === 'LI') {
+    count++;
+    //Start the timer on the first click
+    if (count===1) {
+        startTimer();
+    }
     displayCard(card);
     listOfOpenCards(card);
     }
 });
-
-
-
-//startTimer();
-
 
 /*
  *   + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
