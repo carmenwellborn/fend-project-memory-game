@@ -59,13 +59,21 @@ function startTimer () {
 
 //* - add the card to a *list* of "open" cards
 var listOfCards=[];
-
+let countMatch = 0;
 function doMatch () {
+
+  countMatch++;
+
   listOfCards[0].classList.add('match');
   listOfCards[1].classList.add('match');
 
   listOfCards[0].classList.remove('open','show');
   listOfCards[1].classList.remove('open','show');
+
+  if (countMatch===8) {
+    alert("You won the game");
+  }
+
 }
 
 function doNoMatch() {
@@ -92,6 +100,8 @@ function listOfOpenCards(card){
         }
       listOfCards=[];
     }, 1000);
+
+    //If all cards match
 
   } // if (listOfCards.length==2)
 
