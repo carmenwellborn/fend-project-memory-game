@@ -48,13 +48,18 @@ function displayCard (card){
    card.classList.add('open', 'show');
 }
 
-var time=0;
+let timeInSeconds;
 function startTimer () {
+  let time=0;
   setTimer = setInterval(function(){
     time++;
-    const timeInSeconds = document.querySelector('.timer');
+    timeInSeconds= document.querySelector('.timer');
     timeInSeconds.textContent = time;
   }, 1000);
+}
+
+function stopTimer (){
+  clearInterval(timeInSeconds);
 }
 
 //* - add the card to a *list* of "open" cards
@@ -70,8 +75,9 @@ function doMatch () {
   listOfCards[0].classList.remove('open','show');
   listOfCards[1].classList.remove('open','show');
 
-  if (countMatch===8) {
+  if (countMatch===1) {
     alert("You won the game");
+    stopTimer();
   }
 
 }
@@ -89,6 +95,11 @@ function listOfOpenCards(card){
   if (listOfCards.length===2){
     const card1 = listOfCards[0].innerHTML;
     const card2 = listOfCards[1].innerHTML;
+
+    //Add animation to cards after open
+    listOfCards[0].classList.add('animation');
+    listOfCards[1].classList.add('animation');
+
     setTimeout(function(){
 
       //if the cards do match, lock the cards in the open position
@@ -98,8 +109,8 @@ function listOfOpenCards(card){
 
       //if the cards do not match, remove the cards from the list and hide the card's symbol
       else if (card1!=card2) {
-          doNoMatch();
-        }
+        doNoMatch();
+          }
       listOfCards=[];
     }, 1000);
 
@@ -122,7 +133,6 @@ function countMoves(count){
 // Count the number of clicks
 let count = 0;
 //* set up the event listener for a card.
-console.log (listOfCards.length);
 
 const deck = document.querySelector('.deck');
 deck.addEventListener('click', function (evt) {
