@@ -82,8 +82,10 @@ function doNoMatch() {
 }
 
 function listOfOpenCards(card){
+
   listOfCards.push(card);
   //*- if the list already has another card, check to see if the two cards match
+
   if (listOfCards.length===2){
     const card1 = listOfCards[0].innerHTML;
     const card2 = listOfCards[1].innerHTML;
@@ -107,6 +109,7 @@ function listOfOpenCards(card){
 
 }
 
+
 //Count the number of moves, every two cards
 function countMoves(count){
   const totalCount = count/2;
@@ -119,6 +122,8 @@ function countMoves(count){
 // Count the number of clicks
 let count = 0;
 //* set up the event listener for a card.
+console.log (listOfCards.length);
+
 const deck = document.querySelector('.deck');
 deck.addEventListener('click', function (evt) {
   const card = evt.target;
@@ -128,14 +133,17 @@ deck.addEventListener('click', function (evt) {
     if (count===1) {
         startTimer();
     }
+    //Conditional to prevent to click a third card
+    if (listOfCards.length<2) {
     displayCard(card);
+
     listOfOpenCards(card);
     countMoves(count);
-    //if((count % 2) == 0){
-      //console.log(count);
-    //}
+    }
+
   }
 });
+
 
 //Restart the page
 function reloadPage() {
