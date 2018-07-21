@@ -75,8 +75,14 @@ h1 {
     font-size: 33px;
 }
 
+.deck .card.match {
+    cursor: default;
+    background: #02ccba;
+    font-size: 33px;
+}
+
 .deck .card.animation{
-  animation: wiggle 2s linear 500ms;
+  animation: wiggle 2s linear infinite;
 }
 
 /*credits: https://codepen.io/tan-ramos-web/pen/OMKjbo*/
@@ -101,16 +107,10 @@ h1 {
  }
  40%, 100%{
    transform: rotateZ(0);
- }: rotate(0deg); }
-
-
+ }: rotate(0deg);
 }
 
-.deck .card.match {
-    cursor: default;
-    background: #02ccba;
-    font-size: 33px;
-}
+
 
 /*
  * Styles for the Score Panel

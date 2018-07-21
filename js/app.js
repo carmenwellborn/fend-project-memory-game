@@ -75,9 +75,9 @@ function doMatch () {
   listOfCards[0].classList.remove('open','show');
   listOfCards[1].classList.remove('open','show');
 
-  if (countMatch===1) {
+  if (countMatch===8) {
     alert("You won the game");
-    stopTimer();
+    //stopTimer();
   }
 
 }
@@ -111,6 +111,8 @@ function listOfOpenCards(card){
       else if (card1!=card2) {
         doNoMatch();
           }
+          listOfCards[0].classList.remove('animation');
+          listOfCards[1].classList.remove('animation');
       listOfCards=[];
     }, 1000);
 
@@ -148,6 +150,7 @@ deck.addEventListener('click', function (evt) {
     displayCard(card);
 
     listOfOpenCards(card);
+
     countMoves(count);
     }
 
