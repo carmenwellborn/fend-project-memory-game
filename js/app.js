@@ -49,8 +49,9 @@ function displayCard (card){
 }
 
 let setTimer;
+let time=0;
 function startTimer () {
-  let time=0;
+
   setTimer = setInterval(function(){
     time++;
     let timeInSeconds= document.querySelector('.timer');
@@ -75,9 +76,10 @@ function doMatch () {
   listOfCards[0].classList.remove('open','show');
   listOfCards[1].classList.remove('open','show');
 
-  if (countMatch===8) {
-    alert("You won the game");
+  if (countMatch===1) {
     stopTimer();
+    alert("You won the game!! \n Time:" +time +"seconds");
+
   }
 
 }
