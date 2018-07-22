@@ -1,7 +1,7 @@
 /*
  * Create a list that holds all of your cards
 */
-var classesOfCards = ['fa-diamond','fa-paper-plane-o','fa-anchor','fa-bolt','fa-cube','fa-leaf','fa-bicycle','fa-bomb',
+const classesOfCards = ['fa-diamond','fa-paper-plane-o','fa-anchor','fa-bolt','fa-cube','fa-leaf','fa-bicycle','fa-bomb',
                       'fa-diamond','fa-paper-plane-o','fa-anchor','fa-bolt','fa-cube','fa-leaf','fa-bicycle','fa-bomb'];
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -64,7 +64,7 @@ function stopTimer (){
 }
 
 //* - add the card to a *list* of "open" cards
-var listOfCards=[];
+let listOfCards=[];
 let countMatch = 0;
 function doMatch () {
 
@@ -78,7 +78,8 @@ function doMatch () {
 
   if (countMatch===1) {
     stopTimer();
-    alert("You won the game!! \n Time:" +time +"seconds");
+    //if all cards have matched, display a message with the final score
+    alert("You won the game!! \n Time: " +time +" seconds \n Moves: " +totalCountMoves );
 
   }
 
@@ -118,26 +119,23 @@ function listOfOpenCards(card){
       listOfCards=[];
     }, 1000);
 
-    //If all cards match
-
   } // if (listOfCards.length==2)
 
 }
 
-
+let totalCountMoves;
 //Increment the move counter, every two cards
 function countMoves(count){
-  const totalCount = count/2;
+  totalCountMoves = count/2;
   const moves = document.querySelector('.moves');
   if((count % 2) == 0) {
-    moves.textContent = totalCount;
+    moves.textContent = totalCountMoves;
   }
 }
 
 // Count the number of clicks
 let count = 0;
 //* set up the event listener for a card.
-
 const deck = document.querySelector('.deck');
 deck.addEventListener('click', function (evt) {
   const card = evt.target;
@@ -149,16 +147,15 @@ deck.addEventListener('click', function (evt) {
     }
     //Conditional to prevent to click a third card
     if (listOfCards.length<2) {
-    displayCard(card);
+      displayCard(card);
 
-    listOfOpenCards(card);
+      listOfOpenCards(card);
 
-    countMoves(count);
+      countMoves(count);
     }
 
   }
 });
-
 
 //Restart the page
 function reloadPage() {
@@ -169,5 +166,3 @@ const reload = document.querySelector('.restart');
 reload.addEventListener('click', function () {
   reloadPage();
 });
-
-/*if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)*/
