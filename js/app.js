@@ -48,18 +48,18 @@ function displayCard (card){
    card.classList.add('open', 'show');
 }
 
-let timeInSeconds;
+let setTimer;
 function startTimer () {
   let time=0;
   setTimer = setInterval(function(){
     time++;
-    timeInSeconds= document.querySelector('.timer');
+    let timeInSeconds= document.querySelector('.timer');
     timeInSeconds.textContent = time;
   }, 1000);
 }
 
 function stopTimer (){
-  clearInterval(timeInSeconds);
+  clearInterval(setTimer);
 }
 
 //* - add the card to a *list* of "open" cards
@@ -77,7 +77,7 @@ function doMatch () {
 
   if (countMatch===8) {
     alert("You won the game");
-    //stopTimer();
+    stopTimer();
   }
 
 }
@@ -123,7 +123,7 @@ function listOfOpenCards(card){
 }
 
 
-//Count the number of moves, every two cards
+//Increment the move counter, every two cards
 function countMoves(count){
   const totalCount = count/2;
   const moves = document.querySelector('.moves');
@@ -167,7 +167,5 @@ const reload = document.querySelector('.restart');
 reload.addEventListener('click', function () {
   reloadPage();
 });
-/*
- *   + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *   + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
+
+/*if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)*/
