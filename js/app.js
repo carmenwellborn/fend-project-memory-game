@@ -19,12 +19,12 @@ function shuffle(array) {
     return array;
 }
 
-function removeStarts() {
+function removeStars() {
     const star = document.querySelector('.stars li');
     star.style.display = 'none';
 }
 
-removeStarts();
+removeStars();
 
 //* Display the cards on the page
 function cardsInDeck () {
