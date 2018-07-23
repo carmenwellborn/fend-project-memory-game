@@ -63,6 +63,13 @@ function stopTimer (){
   clearInterval(setTimer);
 }
 
+function modalAnswer() {
+     //If user press OK reload the page
+    if (confirm("You WON the game!! \n\n Time: " + time + " seconds \n Moves: " + totalCountMoves + "\n\n Press 'OK' to play again")) {
+        reloadPage();
+    }
+}
+
 //* - add the card to a *list* of "open" cards
 let listOfCards=[];
 let countMatch = 0;
@@ -78,9 +85,11 @@ function doMatch () {
 
   if (countMatch===1) {
     stopTimer();
-    //if all cards have matched, display a message with the final score
-    alert("You won the game!! \n Time: " +time +" seconds \n Moves: " +totalCountMoves );
 
+    listOfCards[0].classList.remove('animation');
+    listOfCards[1].classList.remove('animation');
+
+    modalAnswer();
   }
 
 }
