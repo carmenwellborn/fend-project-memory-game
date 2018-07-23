@@ -19,6 +19,13 @@ function shuffle(array) {
     return array;
 }
 
+function removeStarts() {
+    const star = document.querySelector('.stars li');
+    star.style.display = 'none';
+}
+
+removeStarts();
+
 //* Display the cards on the page
 function cardsInDeck () {
   //- shuffle the list of cards using the provided "shuffle" method below
