@@ -20,11 +20,11 @@ function shuffle(array) {
 }
 
 function removeStars() {
-    const star = document.querySelector('.stars li');
-    star.style.display = 'none';
+  var star = document.querySelector('.stars li');
+  star.parentNode.removeChild(star);
 }
 
-removeStars();
+
 
 //* Display the cards on the page
 function cardsInDeck () {
@@ -90,7 +90,7 @@ function doMatch () {
   listOfCards[0].classList.remove('open','show');
   listOfCards[1].classList.remove('open','show');
 
-  if (countMatch===1) {
+  if (countMatch===8) {
     stopTimer();
 
     listOfCards[0].classList.remove('animation');
@@ -168,6 +168,12 @@ deck.addEventListener('click', function (evt) {
       listOfOpenCards(card);
 
       countMoves(count);
+
+      countStars = count / 2;
+      if ((countStars === 10) || (countStars === 20) || (countStars === 30)) {
+        removeStars();
+      }
+
     }
 
   }
