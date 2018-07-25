@@ -55,6 +55,7 @@ function displayCard (card){
 
 let setTimer;
 let time=0;
+// Start the timer in seconds
 function startTimer () {
 
   setTimer = setInterval(function(){
@@ -64,10 +65,12 @@ function startTimer () {
   }, 1000);
 }
 
+// Stop the timer in seconds
 function stopTimer (){
   clearInterval(setTimer);
 }
 
+// Modal that appear when a user Wins a game
 function modalAnswer() {
      // If user press OK reloads the pages
     if (confirm("You WON the game!! \n\n Time: " + time + " seconds \n Moves: " + totalCountMoves + "\n Stars: " + stars + "\n\n Do you want to play again? Press 'OK'")) {
